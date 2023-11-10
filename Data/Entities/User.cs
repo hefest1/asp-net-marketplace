@@ -1,8 +1,7 @@
 ﻿namespace Data.Entities;
 
-public class User
+public sealed class User : Entity
 {
-    public int Id { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string Email { get; set; }
@@ -14,5 +13,16 @@ public class User
         LastName = String.Empty;
         Email = String.Empty;
         Password = String.Empty;
+    }
+
+    public static User Create(DTOs.UserDTO dataSource)
+    {
+        return new User()
+        {
+            FirstName = dataSource.FirstName,
+            LastName = dataSource.LastName,
+            Email = dataSource.Email,
+            Password = dataSource.Password,
+        };
     }
 }
