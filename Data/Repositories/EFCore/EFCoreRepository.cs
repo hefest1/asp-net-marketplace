@@ -34,9 +34,11 @@ public abstract class EFCoreRepository<T> where T : Entity
         await Context.SaveChangesAsync();
     }
 
-    public async Task Add(T entity)
+    public async Task<T> Add(T entity)
     {
         await TargetEntity.AddAsync(entity);
         await Context.SaveChangesAsync();
+
+        return entity;
     }
 }

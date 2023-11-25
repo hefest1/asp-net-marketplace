@@ -16,7 +16,8 @@ public class MarketplaceDBContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Marketplace;Trusted_Connection=True;");
+        //optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=Marketplace;Trusted_Connection=True;");
+        optionsBuilder.UseSqlServer("Server=localhost;Database=Marketplace;User Id=sa;Password=QWErt12345;MultipleActiveResultSets=true;TrustServerCertificate=True;");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

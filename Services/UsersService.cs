@@ -13,8 +13,25 @@ public sealed class UsersService : IUsersService
         _repository = repository;
     }
 
-    public async Task AddUser(User user)
+    public async Task<User> AddUser(User user)
     {
-        await _repository.Add(user);
+        var createdUser = await _repository.Add(user);
+        return createdUser;
+    }
+
+    public async Task<User> Get(int id)
+    {
+        var user = await _repository.GetById(id);
+        return user;
+    }
+
+    public void Delete(int id)
+    {
+        _repository.DeleteById(id);
+    }
+
+    public Task<User> Update(User user)
+    {
+        throw new NotImplementedException();
     }
 }
